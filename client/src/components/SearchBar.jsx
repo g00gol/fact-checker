@@ -3,7 +3,7 @@ export default function SearchBar() {
     <label>
       <input
         type="text"
-        placeholder="Type here"
+        placeholder="Type URL here"
         className="input input-bordered w-full max-w-xs"
       />
     </label>
