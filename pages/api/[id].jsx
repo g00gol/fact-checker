@@ -25,15 +25,13 @@ export default async function handler(req, res) {
     // Get the comment from the request body
     const { comment, like } = req.body;
 
-    if (!comment) {
-      return res.status(400).json({ message: "Bad request" });
-    }
-
     const db = await startup();
-    await db
-      .collection("urls")
-      .updateOne({ _id: new ObjectId(id) }, { $push: { comments: comment } });
 
+    if (!!comment) {
+      await db
+        .collection("urls")
+        .updateOne({ _id: new ObjectId(id) }, { $push: { comments: comment } });
+    }
     if (like !== undefined) {
       await db
         .collection("urls")

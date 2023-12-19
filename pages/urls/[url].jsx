@@ -106,13 +106,11 @@ function Panel({ data, url, setData }) {
           </form>
 
           <ul className="flex w-full flex-grow flex-col items-start p-4">
-            <div className="chat chat-start flex flex-col items-start p-4">
-              {data?.comments.map((comment, i) => (
-                <div key={i} className="chat-bubble">
-                  {comment}
-                </div>
-              ))}
-            </div>
+            {data?.comments.map((comment, i) => (
+              <li key={i} className="text-center text-xl">
+                {comment}
+              </li>
+            ))}
           </ul>
         </div>
       </div>
