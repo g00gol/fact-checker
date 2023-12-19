@@ -46,7 +46,7 @@ function Panel({ data, url, setData }) {
     <div className="flex flex-col items-center">
       <h1 className="text-4xl font-bold">Comments</h1>
       <h2 className="text-2xl font-bold">Karma: {data?.karma}</h2>
-      <ul className="menu bg-base-200 rounded-box">
+      <ul className="menu rounded-box bg-base-200">
         <li>
           <button onClick={() => handleVote(true)} className="btn btn-ghost">
             Upvote

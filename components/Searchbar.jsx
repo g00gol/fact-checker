@@ -31,7 +31,7 @@ export default function Searchbar() {
       <form className="join w-full" onSubmit={handleSubmit}>
         <input
           onChange={(e) => setInput(e.target.value)}
-          className="input input-bordered join-item w-full"
+          className="input join-item input-bordered w-full"
           placeholder="Search url"
         />
         <button className="btn btn-primary join-item">Search</button>

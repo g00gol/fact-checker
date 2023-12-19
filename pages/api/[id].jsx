@@ -38,7 +38,7 @@ export default async function handler(req, res) {
         .collection("urls")
         .updateOne(
           { _id: new ObjectId(id) },
-          { $inc: { karma: like ? 1 : -1 } }
+          { $inc: { karma: like ? 1 : -1 } },
         );
     }
 
