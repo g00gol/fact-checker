@@ -23,13 +23,24 @@ export default async function handler(req, res) {
     // Get the id
     const { id } = req.query;
     // Get the comment from the request body
-    const { comment } = req.body;
+    const { comment, like } = req.body;
 
     // Insert the comment into the database if the id exists
+    // And if like is true, increment the karma
+    // If like is false, decrement the karma
     const db = await startup();
     await db
       .collection("urls")
       .updateOne({ _id: new ObjectId(id) }, { $push: { comments: comment } });
+
+    if (like !== undefined) {
+      await db
+        .collection("urls")
+        .updateOne(
+          { _id: new ObjectId(id) },
+          { $inc: { karma: like ? 1 : -1 } }
+        );
+    }
 
     // Get the updated document
     let results = await db

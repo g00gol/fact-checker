@@ -10,9 +10,11 @@ export default async function handler(req, res) {
     let results = await db.collection("urls").findOne({ url: url });
     // If it doesn't exist, create it
     if (!results) {
-      await db.collection("urls").insertOne({ url: url, comments: [] });
-      results = { url: url, comments: [] };
+      const default_obj = { url: url, comments: [], karma: 0 };
+      await db.collection("urls").insertOne(default_obj);
     }
+
+    results = await db.collection("urls").findOne({ url: url });
 
     return res.json(results);
   } else {
