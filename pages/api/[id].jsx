@@ -25,9 +25,10 @@ export default async function handler(req, res) {
     // Get the comment from the request body
     const { comment, like } = req.body;
 
-    // Insert the comment into the database if the id exists
-    // And if like is true, increment the karma
-    // If like is false, decrement the karma
+    if (!comment) {
+      return res.status(400).json({ message: "Bad request" });
+    }
+
     const db = await startup();
     await db
       .collection("urls")

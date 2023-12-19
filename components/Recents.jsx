@@ -15,12 +15,12 @@ export default function Recents() {
     <div className="flex w-full flex-col items-center space-y-4">
       <h1 className="text-4xl">Recents</h1>
       <div className="flex w-full flex-col">
-        {urls.map((url) => (
-          <span className="flex justify-between">
+        {urls.map((url, i) => (
+          <span key={i} className="space-x-2">
+            <span className="text-right text-xl">{url.karma}</span>
             <a href={`/urls/${url._id}`} className="text-left text-xl">
               {url.url}
             </a>
-            <span className="text-right text-xl">{url.karma}</span>
           </span>
         ))}
       </div>

@@ -7,7 +7,7 @@ export default function Home() {
       <h1 className="text-center text-4xl">Fact checker</h1>
       <p>
         The premise of this site is to bring awareness to misinformation online.
-        I've made an online platform where you can search by a URL and vote
+        I&apos;ve made an online platform where you can search by a URL and vote
         whether it is misinforming other people.
       </p>
       <Searchbar />
